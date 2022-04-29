@@ -11,7 +11,7 @@ COPY ["src/HeyTaxi.VehicleService.Application/HeyTaxi.VehicleService.Application
 COPY ["src/HeyTaxi.VehicleService.Domain/HeyTaxi.VehicleService.Domain.csproj", "HeyTaxi.VehicleService.Domain/"]
 RUN dotnet restore "HeyTaxi.VehicleService.WebApi/HeyTaxi.VehicleService.WebApi.csproj"
 
-COPY . .
+COPY src/ .
 WORKDIR "/src/HeyTaxi.VehicleService.WebApi"
 RUN dotnet build "HeyTaxi.VehicleService.WebApi.csproj" -c Release -o /app/build
 
