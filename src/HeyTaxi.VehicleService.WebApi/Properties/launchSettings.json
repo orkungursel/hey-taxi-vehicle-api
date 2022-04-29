@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "HeyTaxi.VehicleApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5281;https://localhost:7118",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

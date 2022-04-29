@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = ".;userService";
+option csharp_namespace = "HeyTaxi.VehicleApi";
+
+package userService;
+
+service UserService {
+  rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+}
+
+message GetUserInfoRequest {
+  repeated string userIds = 1;
+}
+
+message GetUserInfoResponse {
+  repeated UserInfo users = 1;
+}
+
+message UserInfo {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  string type = 4;
+  string role = 5;
+  string avatar = 6;
+}
