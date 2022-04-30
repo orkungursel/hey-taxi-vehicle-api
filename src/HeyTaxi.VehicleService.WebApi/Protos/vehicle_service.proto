@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "HeyTaxi.VehicleService.WebApi.Proto";
+
+package vehicle;
+
+// The vehicle service definition.
+service VehicleService {
+  rpc GetVehicle (GetVehicleRequest) returns (GetVehicleResponse);
+}
+
+// The request message containing the vehicle's ID.
+message GetVehicleRequest {
+    string id = 1;
+}
+
+// The response message containing the vehicle's information.
+message GetVehicleResponse {
+    string id = 1;
+    string name = 2;
+    string plate = 3;
+    string type = 4;
+    string class = 5;
+    int32 seats = 6;
+    DriverDetailsResponse driver = 7;
+}
+
+message DriverDetailsResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string avatar = 4;
+}
