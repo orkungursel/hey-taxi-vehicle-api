@@ -1,7 +1,5 @@
-using HeyTaxi.VehicleApi;
 using HeyTaxi.VehicleService.Application.Services;
 using HeyTaxi.VehicleService.Domain.Core.Repository;
-using HeyTaxi.VehicleService.Infrastructure.Clients;
 using HeyTaxi.VehicleService.Infrastructure.Configurations;
 using HeyTaxi.VehicleService.Infrastructure.Persistence.Context;
 using HeyTaxi.VehicleService.Infrastructure.Repositories;
@@ -30,7 +28,7 @@ public static class Extensions
         return services;
     }
 
-   public static IServiceCollection AddServices(this IServiceCollection services)
+    public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped(typeof(IBaseRepositoryAsync<>), typeof(BaseRepositoryAsync<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -38,12 +36,12 @@ public static class Extensions
 
         return services;
     }
-    
-   public static IServiceCollection AddVehicleDbContext(this IServiceCollection services,
+
+    public static IServiceCollection AddVehicleDbContext(this IServiceCollection services,
         IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
-        
+
         services.AddDbContext<VehicleDbContext>(o =>
         {
             o.UseNpgsql(connectionString);
@@ -53,25 +51,25 @@ public static class Extensions
         return services;
     }
 
-   public static IServiceCollection AddHealthChecks(this IServiceCollection services)
-   {
+    public static IServiceCollection AddHealthChecks(this IServiceCollection services)
+    {
 
-       HealthCheckServiceCollectionExtensions.AddHealthChecks(services)
-           .AddDbContextCheck<VehicleDbContext>(tags: new[] { "db", "all" })
-           .AddCheck<HealthCheckDriverService>("DriverService", tags: new[] { "services", "grpc", "all" });
+        HealthCheckServiceCollectionExtensions.AddHealthChecks(services)
+            .AddDbContextCheck<VehicleDbContext>(tags: new[] { "db", "all" })
+            .AddCheck<HealthCheckDriverService>("DriverService", tags: new[] { "services", "grpc", "all" });
 
         return services;
     }
 
-   public static IServiceCollection AddSeedWork(this IServiceCollection services,
+    public static IServiceCollection AddSeedWork(this IServiceCollection services,
         IConfiguration configuration)
     {
         var vehicleDbContext = services.BuildServiceProvider().GetRequiredService<VehicleDbContext>();
         var seeder = new SeedWork(vehicleDbContext);
 
         seeder.SeedAsync().GetAwaiter().GetResult();
-        
+
         return services;
     }
-    
+
 }

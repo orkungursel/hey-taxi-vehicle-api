@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Protobuf Include="Protos\user_details.proto" GrpcServices="Client" />
+        <Protobuf Include="Protos\user_details.proto" GrpcServices="Client" />
     </ItemGroup>
 
     <ItemGroup>
@@ -36,12 +36,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\HeyTaxi.VehicleService.Application\HeyTaxi.VehicleService.Application.csproj" />
-      <ProjectReference Include="..\HeyTaxi.VehicleService.Domain\HeyTaxi.VehicleService.Domain.csproj" />
+        <ProjectReference Include="..\HeyTaxi.VehicleService.Application\HeyTaxi.VehicleService.Application.csproj" />
+        <ProjectReference Include="..\HeyTaxi.VehicleService.Domain\HeyTaxi.VehicleService.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Persistence" />
+        <Folder Include="Persistence" />
     </ItemGroup>
 
 </Project>
