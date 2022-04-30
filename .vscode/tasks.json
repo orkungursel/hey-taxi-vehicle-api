@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/HeyTaxi.VehicleApi/HeyTaxi.VehicleApi.csproj",
+                "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/HeyTaxi.VehicleService.WebApi.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -20,7 +20,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/HeyTaxi.VehicleApi/HeyTaxi.VehicleApi.csproj",
+                "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/HeyTaxi.VehicleService.WebApi.csproj",
                 "-c",
                 "Release"
             ],
@@ -32,7 +32,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/HeyTaxi.VehicleApi/HeyTaxi.VehicleApi.csproj",
+                "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/HeyTaxi.VehicleService.WebApi.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -46,7 +46,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/HeyTaxi.VehicleApi/HeyTaxi.VehicleApi.csproj"
+                "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/HeyTaxi.VehicleService.WebApi.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
