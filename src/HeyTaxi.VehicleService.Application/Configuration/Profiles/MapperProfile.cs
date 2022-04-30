@@ -14,9 +14,12 @@ public class MapperProfile : Profile
             .ForMember(m => m.Id, opt => opt.MapFrom(src => hashids.EncodeLong(src.Id)))
             .ReverseMap()
             .ForMember(m => m.Id, opt => opt.MapFrom(src => hashids.DecodeSingleLong(src.Id)));
-        
+
+        CreateMap<Vehicle, VehicleWithDriverDTO>()
+            .ForMember(m => m.Id, opt => opt.MapFrom(src => hashids.EncodeLong(src.Id)));
+
         CreateMap<Driver, DriverDTO>().ReverseMap();
-        
+
         CreateMap<AddVehicleRequest, Vehicle>();
     }
 }
