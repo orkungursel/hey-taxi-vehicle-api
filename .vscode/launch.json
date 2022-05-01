@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/HeyTaxi.VehicleApi/bin/Debug/net6.0/HeyTaxi.VehicleApi.dll",
+            "program": "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/bin/Debug/net6.0/HeyTaxi.VehicleService.WebApi.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/HeyTaxi.VehicleApi",
+            "cwd": "${workspaceFolder}/src/HeyTaxi.VehicleService.WebApi/",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             // "serverReadyAction": {
