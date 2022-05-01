@@ -18,7 +18,9 @@ public class MapperProfile : Profile
         CreateMap<Vehicle, VehicleWithDriverDTO>()
             .ForMember(m => m.Id, opt => opt.MapFrom(src => hashids.EncodeLong(src.Id)));
 
-        CreateMap<Driver, DriverDTO>().ReverseMap();
+        CreateMap<Driver, DriverDTO>()
+            .ForMember(m => m.Id, opt => opt.MapFrom(src => src.DriverId))
+            .ReverseMap();
 
         CreateMap<AddVehicleRequest, Vehicle>();
     }
