@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using FluentValidation;
+using HeyTaxi.VehicleService.WebApi.Models;
 
 namespace HeyTaxi.VehicleService.WebApi.Middlewares;
 
@@ -37,20 +38,13 @@ public class ErrorHandlerMiddleware
 
             if (_isDevelopment)
             {
-                var result = JsonSerializer.Serialize(new
-                {
-                    error.Message,
-                });
+                var result = JsonSerializer.Serialize(new ErrorModel(error.Message));
 
                 await response.WriteAsync(result);
             }
             else
             {
-                var result = JsonSerializer.Serialize(new
-                {
-                    error.Message
-                });
-
+                var result = JsonSerializer.Serialize(new ErrorModel(error.Message));
                 await response.WriteAsync(result);
             }
         }
