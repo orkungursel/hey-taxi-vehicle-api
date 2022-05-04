@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureJsonOptions();
 builder.Services.ConfigureJwtOptions(builder.Configuration);
 builder.Services.ConfigureAuthentication(builder.Configuration);
+builder.Services.AddSwagger();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -25,6 +26,11 @@ builder.WebHost.ConfigureKestrel(options =>
 });
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseAppSwagger();
+}
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseAuthentication();
