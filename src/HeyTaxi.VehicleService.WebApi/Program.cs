@@ -32,7 +32,9 @@ if (app.Environment.IsDevelopment())
     app.UseAppSwagger();
 }
 
-app.UseCors();
+app.UseCors((c) => {
+    c.AllowAnyOrigin();
+});
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
